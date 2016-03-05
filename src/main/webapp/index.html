@@ -4,19 +4,56 @@
         <title>PIC Revers Discount</title>
         <meta charset="windows-1252">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+        <script src="app.js"></script>
+<style>
+    table,td,tr{ 
+        padding: 10px;
+    }
+    td{
+        width:  200px;
+    }
+</style>
+
     </head>
-    <body>
-        <div>PIC REVERES DISCOUNT</div>
-        
-        <form action="PicReversDiscountServlet" method="get">
-            Price Before Discount
-            <input type="text" name="priceBeforeDiscountName" value="0"/>
-            <br/>
-            Price After Discount
-            <input type="text" name="priceAfterDiscountName" value="0"/>
-            <br/>
-            <input type="submit" value="Calculate"/>
-        </form>
-        
+    <body ng-app="myapp">
+        <h1>PIC REVERES DISCOUNT</h1>
+
+
+        <div ng-controller="MyController" ng-init="priceBeforeDiscountModel = 111; priceAfterDiscountModel = 11">
+
+            <table>
+                <tr>
+                    <td>Price Before Discount:</td>
+                <a href="../../../nb-configuration.xml"></a>
+                    <td><input type="number" ng-model="priceBeforeDiscountModel"/></td>
+                </tr><tr>
+                <a href="../java/servlet/PicReversDiscountServlet.java"></a>
+                    <td>Price After Discount:</td>
+                    <td><input type="number" ng-model="priceAfterDiscountModel"/></td>
+                </tr><tr>
+                    <td></td>
+                    <td><button ng-click="myData.doClick(item, $event)">Calculate</button></td>    
+                </tr>
+            </table>
+            
+            <hr>
+            
+            <table>
+                <tr>
+                    <td>Result1(one place):</td>
+                    <td>{{result1}}</td>
+                </tr><tr>
+                    <td>Result2(two places):</td>
+                    <td>{{result2}}</td>
+                </tr><tr>
+                    <td>Result3(three places):</td>
+                    <td>{{result3}}</td>
+                </tr>
+            </table>
+            
+        </div>
+
     </body>
 </html>
