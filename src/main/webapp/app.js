@@ -7,18 +7,11 @@ angular.module("myapp", [])
                 //$scope.bbb = $scope.priceBeforeDiscountModel;
                 //$scope.ccc = $scope.priceAfterDiscountModel;
                 
-                var host = window.location.host;
                 //console.log('host=' + host);
                 //var responsePromise = $http.get("http://localhost:8080/pic-revers-discount/resources/picreversdiscountrest/111.00/11.00");
                 //var responsePromise = $http.get("http://localhost:8080/pic-revers-discount/resources/picreversdiscountrest/" + $scope.priceBeforeDiscountModel + "/"+$scope.priceAfterDiscountModel);
-
-                if (host === 'www.compcoding.com') {
-                    var responsePromise = $http.get("http://www.compcoding.com/pic-revers-discount/resources/picreversdiscountrest/" + $scope.priceBeforeDiscountModel + "/" + $scope.priceAfterDiscountModel);
-                } else if (host === 'compcoding.com') {
-                    var responsePromise = $http.get("http://compcoding.com/pic-revers-discount/resources/picreversdiscountrest/" + $scope.priceBeforeDiscountModel + "/" + $scope.priceAfterDiscountModel);
-                } else {
-                    var responsePromise = $http.get("http://localhost:8080/pic-revers-discount/resources/picreversdiscountrest/" + $scope.priceBeforeDiscountModel + "/" + $scope.priceAfterDiscountModel);
-                }
+           
+                var responsePromise = $http.get("http://"+window.location.host+"/pic-revers-discount/resources/picreversdiscountrest/" + $scope.priceBeforeDiscountModel + "/" + $scope.priceAfterDiscountModel);
                 
                 responsePromise.success(function (data, status, headers, config) {
                     //$scope.myData.fromServer = data.title;
